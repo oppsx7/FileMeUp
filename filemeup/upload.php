@@ -40,24 +40,41 @@ if(isset($_POST['submit'])) {
     </nav>
 </header>
 <body>
-    <div class="main_container">
-        <form method="POST" enctype="multipart/form-data" action="./upload.php">
+<div class="main_container">
+        <form class="form" method="POST" enctype="multipart/form-data" action="./upload.php">
             <input type="file" name="file">
             <button type="submit" name="submit">Upload</button>
         </form> 
+        <div>
+ <div class="container">
         <?php 
+        $files = scandir("uploads");
+        for ($a = 2; $a < count($files); $a++) {
+        //Displaying links to download
+        ?>
+    <div class="row">
+        <a><?php echo $files[$a] ?></a>
 
-$files = scandir("uploads");
-for ($a = 2; $a < count($files); $a++) {
-    //Displaying links to download
-    ?>
-    <p>
-        <a download="<?php echo $files[$a] ?>" href="uploads/<?php echo $files[$a] ?>"><?php echo $files[$a] ?></a>
-    </p>
-    <?php
-    }
-    ?>
+        <div class="buttons">
+            <button type="button" class="button" >
+                <a download="<?php echo $files[$a] ?>" href="uploads/<?php echo $files[$a] ?>" class="button__text">Download</a>
+                
+                <span class="button__icon">
+                    <ion-icon name="cloud-download-outline"></ion-icon>
+                </span>
+            </button>
+            <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+            <button class="button">
+                <a href="uploads/<?php echo $files[$a] ?>" class="button__text">Preview</a>
+            </button>
+        </div>
+            
     </div>
+        <?php
+        }
+        ?>
+</div>
+</div>
 </body>
 
 

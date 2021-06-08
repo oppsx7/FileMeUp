@@ -36,6 +36,10 @@ body {
     text-decoration: underline;
 }
 
+.form {
+    position: absolute;
+}
+
 .main_container {
     margin: auto;
     margin-top: 20px;
@@ -47,8 +51,78 @@ body {
     -moz-border-radius: 10px;
     border-radius: 10px;
     background: #ffffff;
+    max-height: 80%;
+    /* overflow-y: auto; */
 }
 
-.main_container p {
-
+.button {
+    display: flex;
+    height: 30px;
+    padding: 0;
+    background: #009578;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    /* margin: 10px; */
+    margin-right: 20px;
+  }
+  
+  .button:hover {
+    background: #008168;
+  }
+  
+  .button:active {
+    background: #006e58;
+  }
+  
+  .button__text,
+  .button__icon {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 12px;
+    color: #fff;
+    height: 100%;
 }
+
+a {
+    text-decoration: none;
+    align-self: center;
+    /* margin: 10px; */
+}
+  
+  .button__icon {
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.08);
+  }
+
+
+.row {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;
+      justify-content: space-between;
+  }
+
+  .row:hover {
+      background-color: gray;
+  }
+
+  .container {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      max-height: 68%;
+      overflow-y: auto;
+      scrollbar-width: thin;
+  }
+  
+  .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+  }
