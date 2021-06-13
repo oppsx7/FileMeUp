@@ -27,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 					$_SESSION['userid'] = $row['id'];
 					$_SESSION['user'] = $row;
 					
-					header("location: registration.html");
+					header("location: index.php");
 					exit;
 				} else {
 					$error .= '<p class = "error"> The password is not valid.</p>';
@@ -48,15 +48,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="./login_style.css">
-	<script defer src="./sendRequestUtility.js"></script>
-    <script defer src="./login.js"></script>
 	<title>FileMeUp</title>
 </head>
 	<div class="wrapper fadeInDown">
 	  <div id="formContent">
 		<!-- Tabs Titles -->
 		<h2 class="active"> Sign In </h2>
-		<h2 class="inactive underlineHover"><a href = "./registration.html">Sign Up </a></h2> 
+		<h2 class="inactive underlineHover"><a href = "./registration.php">Sign Up </a></h2> 
 
 		<!-- Icon -->
 		<div class="fadeIn first">
