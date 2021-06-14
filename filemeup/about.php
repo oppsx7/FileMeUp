@@ -2,12 +2,12 @@
 
 ?>
 <head>
-    <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="./filesystem/style.css"/>
 </head>
 <header>
     <nav class="nav_bar">
-        <a href="upload.php">My Uploads</a> |
-        <a href="index.php">All Uploads</a> |
+        <a href="index.php">My Uploads</a> |
+        <a href="index.php">Shared Uploads</a> |
         <a href="about.php">About</a> |
         <a href="login.php">LogOut</a>
     </nav>

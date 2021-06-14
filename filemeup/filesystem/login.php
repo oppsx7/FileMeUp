@@ -48,13 +48,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="./login_style.css">
+	<link rel="stylesheet" href="./style.css">
+	<script defer src="./sendRequestUtility.js"></script>
+    <script defer src="./login.js"></script>
 	<title>FileMeUp</title>
 </head>
 	<div class="wrapper fadeInDown">
 	  <div id="formContent">
 		<!-- Tabs Titles -->
 		<h2 class="active"> Sign In </h2>
-		<h2 class="inactive underlineHover"><a href = "./registration.php">Sign Up </a></h2> 
+		<h2 class="inactive underlineHover"><a href = "./registration.html">Sign Up </a></h2> 
 
 		<!-- Icon -->
 		<div class="fadeIn first">
@@ -64,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 		<!-- Login Form -->
 		<form class = "login" action = "" method = "post">
 			<input type="text" id="username" class="fadeIn second" name="user-name" placeholder="Username">
-			<input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
+			<input type="text" id="password" class="fadeIn third" name="password" placeholder="Password">
 			<input name="submit" type="submit" id = "login" class="fadeIn fourth" value="Log In">
 			<a id = "errors"></a>
 		</form>

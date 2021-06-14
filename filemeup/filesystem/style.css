@@ -2,14 +2,14 @@
 
 
 body {
-    background: #efefef;
-    margin: 0 auto;
+    background-color: #ffffff;
+    /* margin: 0 auto; */
     font-family: arial;
 
 }
 
 .nav_bar {
-    background-color: #cccccc;
+    background-color: #ffffff;
     border: 1px solid #000000;
     width: 860px;
     margin: auto;
@@ -21,7 +21,7 @@ body {
     -moz-border-radius: 10px;
     border-radius: 10px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .nav_bar a {
@@ -36,30 +36,46 @@ body {
     text-decoration: underline;
 }
 
+h2.inactive {
+    color: #cccccc;
+  }
+  
+  h2.active {
+    color: #0d0d0d;
+    border-bottom: 2px solid #5fbae9;
+  }
+
 .form {
     position: absolute;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+}
+
+.submitbtn {
+    margin: 10px;
 }
 
 .main_container {
     margin: auto;
-    margin-top: 20px;
-    width: 860px;
+    margin-top: 12px;
+    width: 95%;
     padding: 20px;
     border: 1px solid #000000;
-    min-height: 400px;
+    height: 85%;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
     background: #ffffff;
-    max-height: 80%;
-    /* overflow-y: auto; */
+    max-height: 95%;
 }
 
 .button {
     display: flex;
     height: 30px;
     padding: 0;
-    background: #009578;
+    background: #5fbae9;
     border: none;
     outline: none;
     border-radius: 5px;
@@ -68,16 +84,15 @@ body {
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    /* margin: 10px; */
     margin-right: 20px;
   }
   
   .button:hover {
-    background: #008168;
+    background: #4896bd;
   }
   
   .button:active {
-    background: #006e58;
+    background: #5fbae9;
   }
   
   .button__text,
@@ -92,7 +107,6 @@ body {
 a {
     text-decoration: none;
     align-self: center;
-    /* margin: 10px; */
 }
   
   .button__icon {
@@ -104,16 +118,17 @@ a {
 .row {
       display: flex;
       flex-direction: row;
-      margin-bottom: 10px;
+      margin: 5px;
       justify-content: space-between;
+      border-radius: 10px;
   }
 
   .row:hover {
-      background-color: gray;
+      background-color: rgba(221, 221, 221, 0.829);
   }
 
   .container {
-      margin-top: 30px;
+      margin-top: 50px;
       display: flex;
       flex-direction: column;
       max-height: 68%;
@@ -125,4 +140,15 @@ a {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
+  }
+
+  .table-responsive {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+  }
+
+  .btn {
+    margin: 10px;
   }

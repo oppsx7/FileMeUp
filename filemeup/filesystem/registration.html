@@ -2,13 +2,14 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="./login_style.css">
+	<link rel="stylesheet" href="./style.css">
 	<title>FileMeUp</title>
 </head>
 	<div class="wrapper fadeInDown">
 	  <div id="formContent">
 		<!-- Tabs Titles -->
-		<h2 class="active"> Sign In </h2>
-		<h2 class="inactive underlineHover">Sign Up </h2>
+		<h2 class="inactive underlineHover"><a href = "./login.php"> Sign In </a></h2>
+		<h2 class="active">Sign Up </h2>
 
 		<!-- Icon -->
 		<div class="fadeIn first">
@@ -16,10 +17,11 @@
 		</div>
 		
 		<!-- Login Form -->
-		<form>
-		  <input type="text" id="login" class="fadeIn second" name="login" placeholder="E-mail">
-		  <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
-		  <input type="submit" class="fadeIn fourth" value="Log In">
+		<form class = "register">
+			<input type="text" id="username" class="fadeIn first" name="login" placeholder="Username">
+			<input type = "text" id = "email" name="login" class = "fadeIn second" placeholder="Email">
+			<input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
+			<input type="submit" class="fadeIn fourth" value="Register">
 		</form>
 
 		<!-- Remind Passowrd -->
