@@ -12,7 +12,7 @@ if($_FILES["upload_file"]["name"] != '')
     $userID = $_SESSION['userid'];
     $folder_name = $_POST["hidden_folder_name"] . '/';
     $path = $_POST["hidden_folder_name"] . '/' . $new_file_name;
-    $query = "INSERT INTO files(name, type, userID, folderName) VALUES('$new_file_name', '$extension', '$userID', '$folder_name')";
+    $query = "INSERT INTO files(name, type, userID, folderName, path) VALUES('$new_file_name', '$extension', '$userID', '$folder_name', '$path')";
     $run = mysqli_query($conn,$query);
     if ($run){
         

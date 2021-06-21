@@ -17,12 +17,21 @@
     <body>
         <br /><br />
         <div class="container">
-            <br />
-            <div align="right">
-                <button type="button" name="create_folder" id="create_folder" class="btn btn-success">Create Folder</button>
+            <div class="row1">
+                <div style="margin: auto 0;">
+                    <form method="post" id="search_form">
+                        <label>Search</label>
+                        <input type="text" name="search">
+                        <input type="submit" name="submit">
+                    </form>
+                </div>
+                <div>
+                    <button type="button" name="create_folder" id="create_folder" class="btn btn-success">Create Folder</button>
+                </div>
             </div>
             <div id="folder_table" class="table-responsive">
-            </div>
+                </div>
+            
         </div>
     </body>
 
@@ -161,6 +170,22 @@
         $('#upload_form').on('submit', function(){
             $.ajax({
                 url: "upload.php",
+                method: "POST",
+                data:new FormData(this),
+                contentType:false,
+                cache:false,
+                processData:false,
+                success:function(data)
+                {
+                    load_folder_list();
+                    alert(data);
+                }
+            });
+        });
+
+        $('#search_form').on('submit', function(){
+            $.ajax({
+                url: "search.php",
                 method: "POST",
                 data:new FormData(this),
                 contentType:false,

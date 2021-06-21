@@ -152,3 +152,10 @@ a {
   .btn {
     margin: 10px;
   }
+
+.row1{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -53,7 +53,7 @@ if(isset($_POST["action"]))
 {
     if($_POST["action"] =="fetch")
     {
-        $folder = array_filter(glob('*'), 'is_dir');
+        $folder = array_filter(glob('folders/*'), 'is_dir');
         $output = '
         <table class="table table-bordered table-striped">
             <tr>
@@ -71,9 +71,10 @@ if(isset($_POST["action"]))
         {
             foreach($folder as $name) 
             {
+                $basename = basename($name);
                 $output .= '
                     <tr>
-                        <td>'.$name.'</td>
+                        <td>'.$basename.'</td>
                         <td>'.(count(scandir($name)) - 2).'</td>
                         <td>'.get_folder_size($name).'</td>
                         <td><button type="button" name="update" data-name="'.$name.'" class="update btn btn-warning btn-xs">Update</button></td>
@@ -101,16 +102,16 @@ if(isset($_POST["action"]))
         if(!file_exists($_POST["folder_name"]))
         {
             $userID = $_SESSION['userid'];
-            $fileName = $_POST["folder_name"];
-
-            $query = "INSERT INTO folders(name, shared, userID) VALUES('$fileName', '1', '$userID')";
+            $folderName = $_POST["folder_name"];
+            $path =  "folders" . '/' . $folderName;
+            $query = "INSERT INTO folders(name, shared, userID, path) VALUES('$folderName', '1', '$userID', '$path')";
             $run = mysqli_query($conn,$query);
             if($run) {
-                mkdir($fileName, 0777, true);
+                mkdir($path, 0777, true);
                 echo 'Folder Created';
 		    } else {
-                echo $fileName;
-                echo $userID;
+                echo $folderName;
+                echo $path;
             }
         }
         else
