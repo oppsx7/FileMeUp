@@ -7,20 +7,21 @@
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
         $username = trim($_POST['username']);
         $email = trim($_POST['email']);
+        $faculty = trim($_POST['faculty_number']);
         $password = trim($_POST['password']);
         $confirmPassword = trim($_POST["confirm_password"]);
         $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-        $queryString = "SELECT * FROM users WHERE email = :email";
+        $queryString = "SELECT * FROM users WHERE username = :username";
         if($query = $connection->prepare($queryString)) {
             $error = '';
 
-            $query->execute(["email" => $email]);
+            $query->execute(["username" => $username]);
 
            //$query->store_result();
             $row = $query->fetch();
             if($row) {
-                $error .= '<p class="error"> This email is already registered!</p>';
+                $error .= '<p class="error"> This username is already registered!</p>';
             } else {
                 // Validate password
                 if(strlen($password) < 6) {
@@ -34,8 +35,8 @@
                     }
                 }
                 if(empty($error)) {
-                    $insertQuery = $connection->prepare("INSERT into users(username, email, password) VALUES(:username, :email, :password);");
-                    $result = $insertQuery->execute(["username" => $username , "email" => $email, "password" => $password_hash]);
+                    $insertQuery = $connection->prepare("INSERT into users(username, email,faculty_number, password) VALUES(:username, :email,:faculty_number, :password);");
+                    $result = $insertQuery->execute(["username" => $username , "email" => $email,"faculty_number" => $faculty, "password" => $password]);
                     if($result) {
                         $error .= '<p class = "success"> Your registration was successful!</p>';
                         header("location: index.php");
@@ -68,18 +69,20 @@
 		
 		<!-- Login Form -->
         <?php echo $success ?>
-        <?php echo $error ?>
+        
 		<form class = "register" action = "" method = "post">
 			<input type="text" id="username" class="fadeIn first" name="username" placeholder="Username">
-			<input type = "text" id = "email" name="email" class = "fadeIn second" placeholder="Email">
-			<input type="text" id="password" class="fadeIn third" name="password" placeholder="Password">
-            <input type="text" id="confirm_password" class="fadeIn third" name="confirm_password" placeholder="Confirm Password">
+			<input type = "email" id = "email" name="email" class = "fadeIn second" placeholder="Email">
+            <input type = "text" id = "faculty_number" name = "faculty_number" class = "fadeIn second" placeholder="Faculty number">
+			<input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
+            <input type="password" id="confirm_password" class="fadeIn third" name="confirm_password" placeholder="Confirm Password">
+            <?php echo $error ?>
 			<input type="submit" name = "submit" id = "submit" class="fadeIn fourth" value="Register">
 		</form>
 
 		<!-- Remind Passowrd -->
 		<div id="formFooter">
-		  <a class="underlineHover" href="#">Forgot Password?</a>
+		  <a class="underlineHover">@Copyrights: Valio & Toshko</a>
 		</div>
 	  </div>
 	</div>
