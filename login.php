@@ -3,24 +3,24 @@
 require_once "config.php";
 require_once "session.php";
 
-
+$username = '';
+$password = '';
 $error = '';
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 	
 	$username = trim($_POST['user-name']);
 	$password = trim($_POST['password']);
 	
-	if(empty($username)) {
-		$error .= '<p class = "error"> Please enter username.</p>';
-	}
-	
 	if(empty($password)) {
-		$error .= '<p class = "error"> Please enter password.</p>';
+		$error = '<p class = "error"> Please enter password.</p>';
 	}
-	$queryString = "SELECT * FROM users WHERE username = :username AND password = :password";
+	if(empty($username)) {
+		$error = '<p class = "error"> Please enter username.</p>';
+	}
+	$queryString = "SELECT * FROM users WHERE username = :username";
 	if(empty($error)) {
 		if($query = $connection->prepare($queryString)) {
-			$query->execute(["username" => $username, "password" => $password]);
+			$query->execute(["username" => $username]);
 			$row = $query->fetch();
 			if($row) {
 				if($password === $row['password']) {
@@ -33,11 +33,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 					$error .= '<p class = "error"> The password is not valid.</p>';
 				} 
 			} else {
-				$error .= '<p class = "error"> No user exist with that username. </p>';
+				$username = "";
+				$error .= '<p class = "error"> This username is not valid </p>';
 			}
 		}
 	}
-	echo $error;
 	//mysqli_close($connection);
 }
 
@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="./login_style.css">
+	<link rel="stylesheet" href="./styles/login_style.css">
 	<title>FileMeUp</title>
 </head>
 	<div class="wrapper fadeInDown">
@@ -62,16 +62,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 		</div>
 		
 		<!-- Login Form -->
-		<form class = "login" action = "" method = "post">
-			<input type="text" id="username" class="fadeIn second" name="user-name" placeholder="Username">
-			<input type="text" id="password" class="fadeIn third" name="password" placeholder="Password">
+		<form class = "login" id = "login" action = "" method = "post">
+			<input type="text" id="username" class="fadeIn second" name="user-name" placeholder="Username" value= <?php echo $username; ?>>
+			<input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
+			<?php echo $error ?>
 			<input name="submit" type="submit" id = "login" class="fadeIn fourth" value="Log In">
-			<a id = "errors"></a>
+			<a style="word-wrap: break-word;"></a>
 		</form>
 
 		<!-- Remind Passowrd -->
 		<div id="formFooter">
-		  <a class="underlineHover" href="#">Forgot Password?</a>
+			<a class="underlineHover">@Copyrights: Valio & Toshko</a>
 		</div>
 	  </div>
 	</div>
