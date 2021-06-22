@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./styles/login_style.css">
+	<link rel="stylesheet" href="./styles/style.css"/>
+	<title>FileMeUp</title>
+</head>
+<header>
+    <nav class="nav_bar_login">
+        <a href="logout_shared.php">Shared Uploads</a> |
+        <a href="logout_about.php">About</a> | 
+		<a href="index.php">LogIn</a>
+		
+    </nav>
+</header>
+	<div class="wrapper fadeInDown">
+	  <div id="formContent">
+		<!-- Tabs Titles -->
+		<h2 class="active"> Sign In </h2>
+		<h2 class="inactive underlineHover"><a href = "./registration.php">Sign Up </a></h2> 
+
+		<!-- Icon -->
+		<div class="fadeIn first">
+		  <img src="http://w16ref.w3c.fmi.uni-sofia.bg/img/logo.png" id="icon" alt="User Icon" />
+		</div>
+		
+		<!-- Login Form -->
+		<form class = "login" id = "login" action = "" method = "post">
+			<input type="text" id="username" class="fadeIn second" name="user-name" placeholder="Username" value= <?php echo $username; ?>>
+			<input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
+			<?php echo $error ?>
+			<input name="submit" type="submit" id = "login" class="fadeIn fourth" value="Log In">
+			<a style="word-wrap: break-word;"></a>
+		</form>
+
+		<!-- Remind Passowrd -->
+		<div id="formFooter">
+			<a class="underlineHover">@Copyrights: Valio & Toshko</a>
+		</div>
+	  </div>
+	</div>
+</html>

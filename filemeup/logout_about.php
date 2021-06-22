@@ -5,11 +5,10 @@
     <link rel="stylesheet" href="./styles/style.css"/>
 </head>
 <header>
-    <nav class="nav_bar">
-        <a href="user_uploads.php">My Uploads</a> |
-        <a href="shared_uploads.php">Shared Uploads</a> |
-        <a href="about.php">About</a> |
-        <a href="index.php">Logоut</a>
+    <nav class="nav_bar_login">
+        <a href="logout_shared.php">Shared Uploads</a> |
+        <a href="logout_about.php">About</a> |
+        <a href="index.php">LogIn</a>
     </nav>
 </header>
 <body>

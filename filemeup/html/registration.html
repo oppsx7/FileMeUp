@@ -1,0 +1,46 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./styles/login_style.css">
+    <link rel="stylesheet" href="./styles/style.css"/>
+	<title>FileMeUp</title>
+</head>
+<header>
+    <nav class="nav_bar_login">
+        <a href="logout_shared.php">Shared Uploads</a> |
+        <a href="logout_about.php">About</a> | 
+		<a href="index.php">LogIn</a>
+		
+    </nav>
+</header>
+	<div class="wrapper fadeInDown">
+	  <div id="formContent">
+		<!-- Tabs Titles -->
+		<h2 class="inactive underlineHover"><a href = "./index.php"> Sign In </a></h2>
+		<h2 class="active">Sign Up </h2>
+
+		<!-- Icon -->
+		<div class="fadeIn first">
+		  <img src="http://w16ref.w3c.fmi.uni-sofia.bg/img/logo.png" id="icon" alt="User Icon" />
+		</div>
+		
+		<!-- Login Form -->
+        <?php echo $success ?>
+        
+		<form class = "register" action = "" method = "post">
+			<input type="text" id="username" class="fadeIn first" name="username" placeholder="Username">
+			<input type = "email" id = "email" name="email" class = "fadeIn second" placeholder="Email">
+            <input type = "text" id = "faculty_number" name = "faculty_number" class = "fadeIn second" placeholder="Faculty number">
+			<input type="password" id="password" class="fadeIn third" name="password" placeholder="Password">
+            <input type="password" id="confirm_password" class="fadeIn third" name="confirm_password" placeholder="Confirm Password">
+            <?php echo $error ?>
+			<input type="submit" name = "submit" id = "submit" class="fadeIn fourth" value="Register">
+		</form>
+
+		<!-- Remind Passowrd -->
+		<div id="formFooter">
+		  <a class="underlineHover">@Copyrights: Valio & Toshko</a>
+		</div>
+	  </div>
+	</div>
+</html>
